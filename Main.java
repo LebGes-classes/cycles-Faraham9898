@@ -1,15 +1,31 @@
-import java.util.Scanner;
+import java.lang.Math;
+
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = 0;
-        String A = sc.nextLine();
-        String[] paths = A.split(" ");
-        for(int i = 0; i < paths.length; i++){
-            if(paths[i].charAt(0) == 'A' | paths[i].charAt(0) == 'a'){
-                n += 1;
-            }
+        int x = -9;
+        while (x >= -9 && x <= 9) {
+            double g = chetY(x);
+            System.out.println(g);
+            x++;
         }
-        System.out.print(n);
+    }
+    public static double chetY(int x){
+        double y = 0;
+        if (x <= -6) {
+            y = -Math.sqrt(9 - Math.pow((x + 6), 2));
+        }
+        if (x > -6 && x <= -3) {
+            y = x + 3;
+        }
+        if (x > -3 && x <= 0) {
+            y = Math.sqrt(9 - Math.pow((x), 2));
+        }
+        if (x > 0 && x <= 3) {
+            y = -x + 3;
+        }
+        if (x > 3 && x <= 9){
+            y = x * 0.5 - 3 * 0.5;
+        }
+        return y;
     }
 }
